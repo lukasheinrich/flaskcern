@@ -52,23 +52,26 @@
 .imgcaption{
 	color:#999999;
 	position:relative;
-	width:8em;
+	width:12em;
 	font-family:'IM Fell Great Primer', serif;
 	font-size:0.9em;
 	line-height:1.5em;
 	font-style:italic;	
 }
 
+::selection {color:#eee;background:#228822;}
+::-moz-selection {color:#eee;background:#228822;}
+
 .cap-left{
 	padding-right:0.5em;
-	margin-left:-10em;
+	margin-left:-15em;
 	float:left;
 	text-align:left;
 }
 
 .cap-right{
 	padding-left:0.5em;
-	margin-right:-10em;
+	margin-right:-15em;
 	float:right;
 	text-align:left;
 }
