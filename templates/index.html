@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 
-{% macro floatimg(src, side, width=10, caption='') %}
+{% macro floatimg(src, side, width=10, caption='', caller=None) %}
 	<div class="floatpic-{{side}}" style="float:{{side}};">
-		<div class="imgcaption-{{side}}">{{caption}}</div>
+		<div class="imgcaption cap-{{side}}">
+			{{caption}}
+			{% if caller is callable %}{{caller()}}{% endif %}
+		</div>
 		<img src="{{src}}" style="width:{{width}}em;"/>
 	</div>
 {%- endmacro %}
+
+{% macro embed(caller) %}
+	<div class="called" style="color:red;">{{caller()}}</div>
+{% endmacro %}
 
 {% block content %}
   <h1>Intro</h1>
@@ -16,8 +23,17 @@
   <h1>Publications</h1>
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 		{{floatimg('http://atlas.ch/photos/atlas_photos/selected-photos/events/eve_gen_0806_001.jpg',
-					'right',caption='Particle Identification in the ATLAS Experiment',width=20)}}
+					'right',width=20,caption="short caption") }}
+
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+		{% call floatimg('http://atlas.ch/photos/atlas_photos/selected-photos/events/eve_gen_0806_001.jpg',
+					'left',width=35) %}
+					This is a much longer caption. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		{% endcall %}
+
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</p>
   

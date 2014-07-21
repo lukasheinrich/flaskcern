@@ -1,16 +1,17 @@
 #content{
 	background-color: white;
-	width: 35em;
-	margin-right:auto;
-	margin-left:auto;
 	padding: 1em;
+	padding-top:5em;
 /*	min-height:500px;*/
 }
 
-#footer{
+.centered35em{
 	width: 35em;
 	margin-right:auto;
 	margin-left:auto;
+}
+
+#footer{
 	padding: 1em;
 	clear:both;
 }
@@ -27,14 +28,15 @@
 }
 
 #topbar{
-/*	position:fixed;*/
-	width: 35em;
+	position:fixed;
+	width: 100%;
 	margin-top:0;
 	padding-top:0;
-	margin-right:auto;
-	margin-left:auto;
 	padding: 1em;
-	border-bottom: solid black 1px;
+	border-bottom: solid #cccccc 1px;
+	background-color:white;
+	height:2em;
+	z-index:1000;
 }
 
 .floatpic-left{
@@ -47,32 +49,28 @@
 	margin-right:0em;
 }
 
-.imgcaption-left{
+.imgcaption{
 	color:#999999;
-	padding-left:0.5em;
-	text-align:left;
 	position:relative;
-	margin-left:-10em;
 	width:8em;
-	float:left;
 	font-family:'IM Fell Great Primer', serif;
 	font-size:0.9em;
 	line-height:1.5em;
-	font-style:italic;
+	font-style:italic;	
 }
 
-.imgcaption-right{
-	color:#999999;
-	padding-left:0.5em;
+.cap-left{
+	padding-right:0.5em;
+	margin-left:-10em;
+	float:left;
 	text-align:left;
-	position:relative;
+}
+
+.cap-right{
+	padding-left:0.5em;
 	margin-right:-10em;
-	width:8em;
 	float:right;
-	font-family:'IM Fell Great Primer', serif;
-	font-size:0.9em;
-	line-height:1.5em;
-	font-style:italic;
+	text-align:left;
 }
 
 
@@ -87,6 +85,10 @@ a:hover{
 
 h1{
 	color:#992222;
+}
+
+h1:hover{
+	color:#228822;
 }
 
 body {

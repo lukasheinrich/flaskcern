@@ -4,9 +4,11 @@
 {% endblock %}
 
 {% block topbar %}
+<div class="centered35em">
 <ul id="nav">
 	{% for x in ['About','Code','Physics'] %}
 	<li class="navitem"><a href="{{x|lower}}">{{x}}</a></li>
 	{% endfor %}
 </ul>
+</div>
 {% endblock %}

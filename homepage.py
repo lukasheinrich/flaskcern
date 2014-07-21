@@ -13,4 +13,5 @@ def page(name):
     return flask.render_template('{}.html'.format(name),year=datetime.datetime.now().year)
         
 if __name__ == "__main__":
+    app.debug = True
     app.run()
