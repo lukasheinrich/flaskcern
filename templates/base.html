@@ -3,8 +3,8 @@
   {{ super() }}
 {% endblock %}
 
-{% block sidebar %}
-<ul>
+{% block topbar %}
+<ul id="nav">
 	{% for x in ['About','Code','Physics'] %}
 	<li class="navitem"><a href="">{{x}}</a></li>
 	{% endfor %}

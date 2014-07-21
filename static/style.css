@@ -4,29 +4,36 @@
 	margin-right:auto;
 	margin-left:auto;
 	padding: 1em;
-/*	border: solid black 1px;*/
 /*	min-height:500px;*/
 }
 
 #footer{
-	width: 50%;
+	width: 35em;
 	margin-right:auto;
 	margin-left:auto;
 	padding: 1em;
 	clear:both;
 }
 
-.navitem{
-	list-style-type: none;
-	margin:0.5em;
+#nav{
+	padding:0;
+	margin:0;
 }
 
-#sidebar{
-	height: 200px;
-	width:10em;
-	float: left;
-	margin: 10em 1em 0em 2em;
-/*	border: solid black 1px;*/
+.navitem{
+	display:inline;
+	list-style-type: none;
+	margin:0em 0.5em 0em 0.5em;
+}
+
+#topbar{
+	width: 35em;
+	margin-top:0;
+	padding-top:0;
+	margin-right:auto;
+	margin-left:auto;
+	padding: 1em;
+	border-bottom: solid black 1px;
 }
 
 .floatpic-left{
@@ -39,19 +46,43 @@
 	margin-right:0em;
 }
 
-.imgcaption{
+.imgcaption-left{
 	color:#999999;
-	font-style:italic;
 	padding-left:0.5em;
 	text-align:left;
+	position:relative;
+	margin-left:-10em;
+	width:8em;
+	float:left;
+	font-family:'IM Fell Great Primer', serif;
+	font-size:0.8em;
+	line-height:1.5em;
+	font-style:italic;
+}
+
+.imgcaption-right{
+	color:#999999;
+	padding-left:0.5em;
+	text-align:left;
+	position:relative;
+	margin-right:-10em;
+	width:8em;
+	float:right;
+	font-family:'IM Fell Great Primer', serif;
+	font-size:0.8em;
+	line-height:1.5em;
+	font-style:italic;
 }
 
 
+
 body {
+	padding:0;
+	margin:0;
 	background-color: white;
-	color: #444444;
+	color: #666666;
 	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
-	line-height:1.5em;
+	line-height:1.7em;
 	text-align:justify;
 	text-justify:inter-word;
 }

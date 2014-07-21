@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 
-{% macro floatimg(src, side, width='10em', caption='') %}
+{% macro floatimg(src, side, width=10, caption='') %}
 	<div class="floatpic-{{side}}" style="float:{{side}};">
-		<img src="{{src}}" style="width:{{width}};"/>
-		<div class="imgcaption" style="width:{{width}};">{{caption}}</div>
+		<div class="imgcaption-{{side}}">{{caption}}</div>
+		<img src="{{src}}" style="width:{{width}}em;"/>
 	</div>
 {%- endmacro %}
 
@@ -17,7 +17,7 @@
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		{{floatimg('http://atlas.ch/photos/atlas_photos/selected-photos/events/eve_gen_0806_001.jpg',
-					'left',caption='ATLAS',width='15em')}} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					'left',caption='Particle Identification in the ATLAS Experiment',width=35)}} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</p>
   
 {% endblock %}
