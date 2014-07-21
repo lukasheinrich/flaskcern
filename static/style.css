@@ -27,6 +27,7 @@
 }
 
 #topbar{
+/*	position:fixed;*/
 	width: 35em;
 	margin-top:0;
 	padding-top:0;
@@ -75,6 +76,18 @@
 }
 
 
+a:link{
+	color:#992222;
+}
+
+a:hover{
+	color:#228822;
+}
+
+
+h1{
+	color:#992222;
+}
 
 body {
 	padding:0;
