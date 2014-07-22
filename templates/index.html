@@ -52,7 +52,12 @@ from homepage import app
 if __name__ == '__main__':
     WSGIServer(app).run()</code></pre>
 
+This file needs go be executable
+<pre><code>chmod +x cgi-bin/homepage.fcgi</code></pre>
+
 </p>
+
+
 <p>
 In order to teach Apache to relay the requests through Flask we add this <code>.htaccess</code> file:
 <pre><code>pico .htaccess</code></pre>
@@ -60,9 +65,6 @@ In order to teach Apache to relay the requests through Flask we add this <code>.
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ cgi-bin/homepage.fcgi/$1 [QSA,L]</code></pre>
-
-This file needs go be executable
-<pre><code>chmod +x cgi-bin/homepage.fcgi</code></pre>
 
 </p>
 
