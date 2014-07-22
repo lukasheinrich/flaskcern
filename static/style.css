@@ -11,6 +11,7 @@
 }
 
 #footer{
+	border-top: solid #cccccc 1px;
 	padding: 1em;
 	clear:both;
 }
