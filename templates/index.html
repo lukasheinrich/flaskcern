@@ -54,7 +54,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ cgi-bin/homepage.fcgi/$1 [QSA,L]</code></pre>
 
 checkout homepage
-<pre><code>git clone git@bitbucket.org:lukas_heinrich/homepage.git</code></pre>
+<pre><code>git clone https://github.com/lukasheinrich/flaskcern.git homepage</code></pre>
 
 permisions
 <pre><code>afind $PWD -t d -e "fs setacl -dir {} -acl webserver:afs read"</code></pre>
