@@ -16,25 +16,48 @@
 {% endmacro %}
 
 {% block content %}
-  <h1>Intro</h1>
+  <h1>Flask on CERN AFS</h1>
 	<p>
-		I am a member of the ATLAS collaboration and PhD student at the CCPP at NYU. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Getting a personal web-space is fairly easy if you are a CERN user. Among other options you can choose to get a site hosted based on files in your personal AFS space. At first sight you are stuck with the standard LAMP (Linux, Apache, MySQL, PHP) experience. If you like Python based frameworks a little fiddling is needed.  For Django CERN IT has a nice <a href="https://espace.cern.ch/webservices-help/WebAuthoring/DynamicWebContent/Pages/Django-Framework.aspx">tutorial</a>. The following adapts it for Flask.
 	</p>
-  <h1>Publications</h1>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+My page is setup to be served from this folder under my personal AFS space <code>/afs/cern.ch/user/l/lheinric/www/public</code>. To start you need to get the flup python module:
+<pre><code>wget https://pypi.python.org/packages/2.6/f/flup/flup-1.0.2-py2.6.egg</code></pre>
 
-		{{floatimg('http://atlas.ch/photos/atlas_photos/selected-photos/events/eve_gen_0806_001.jpg',
-					'right',width=20,caption="cross-sectional view of the detector") }}
+Write FCGI script
+<pre><code>mkdir cgi-bin
+pico cgi-bin/homepage.fcgi</code></pre>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<pre><code>#!/afs/cern.ch/user/l/lheinric/www/public/venv/bin/python
 
-		{% call floatimg('http://atlas.ch/photos/atlas_photos/selected-photos/events/eve_gen_0806_001.jpg',
-					'left',width=35) %}
-					This is a much longer caption. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-		{% endcall %}
+#/usr/bin/python
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
+import sys
+sys.path.insert(0,'/afs/cern.ch/user/l/lheinric/www/public/flup-1.0.2-py2.6.egg')
+sys.path.insert(0,'/afs/cern.ch/user/l/lheinric/www/public/')
+
+from flup.server.fcgi import WSGIServer
+from homepage import app
+
+if __name__ == '__main__':
+    WSGIServer(app).run()</code></pre>
+
+Get Flask
+<pre><code>virtualenv venv
+source venv/bin/activate
+pip install Flask</code></pre>
+
+Add .htaccess
+<pre><code>pico .htaccess</code></pre>
+<pre><code>AddHandler fastcgi-script .fcgi
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ cgi-bin/homepage.fcgi/$1 [QSA,L]</code></pre>
+
+checkout homepage
+<pre><code>git clone git@bitbucket.org:lukas_heinrich/homepage.git</code></pre>
+
+permisions
+<pre><code>afind $PWD -t d -e "fs setacl -dir {} -acl webserver:afs read"</code></pre>
+</p>
   
 {% endblock %}

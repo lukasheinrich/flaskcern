@@ -1,8 +1,7 @@
 #content{
 	background-color: white;
 	padding: 1em;
-	padding-top:5em;
-/*	min-height:500px;*/
+	padding-top:3em;
 }
 
 .centered35em{
@@ -21,6 +20,14 @@
 	margin:0;
 }
 
+pre{
+	border:1px solid black;
+	padding:0.2em;
+	background-color:#eee;
+	color:black;
+	overflow:scroll;
+}
+
 .navitem{
 	display:inline;
 	list-style-type: none;
@@ -31,22 +38,26 @@
 	position:fixed;
 	width: 100%;
 	margin-top:0;
-	padding-top:0;
-	padding: 1em;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
 	border-bottom: solid #cccccc 1px;
 	background-color:white;
-	height:2em;
+	height:1.5em;
 	z-index:1000;
 }
 
 .floatpic-left{
 	margin:1em;
 	margin-left:0em;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
 }
 
 .floatpic-right{
 	margin:1em;
 	margin-right:0em;
+	margin-top:0.5em;
+	margin-bottom:0.5em;
 }
 
 .imgcaption{
@@ -56,7 +67,7 @@
 	font-family:'IM Fell Great Primer', serif;
 	font-size:0.9em;
 	line-height:1.5em;
-	font-style:italic;	
+	font-style:italic;
 }
 
 ::selection {color:#eee;background:#228822;}
@@ -64,18 +75,17 @@
 
 .cap-left{
 	padding-right:0.5em;
-	margin-left:-15em;
+	margin-left:-13em;
 	float:left;
 	text-align:left;
 }
 
 .cap-right{
 	padding-left:0.5em;
-	margin-right:-15em;
+	margin-right:-13em;
 	float:right;
 	text-align:left;
 }
-
 
 a:link{
 	color:#992222;
@@ -85,9 +95,9 @@ a:hover{
 	color:#228822;
 }
 
-
 h1{
 	color:#992222;
+	line-height:1.7em;
 }
 
 h1:hover{
@@ -101,6 +111,6 @@ body {
 	color: #666666;
 	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
 	line-height:1.7em;
-	text-align:justify;
+/*	text-align:justify;*/
 	text-justify:inter-word;
 }
