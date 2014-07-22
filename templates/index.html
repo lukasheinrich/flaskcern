@@ -43,8 +43,10 @@ pico cgi-bin/homepage.fcgi</code></pre>
 <pre><code>#!/afs/cern.ch/user/l/lheinric/www/public/venv/bin/python
 
 import sys
-sys.path.insert(0,'/afs/cern.ch/user/l/lheinric/www/public/flup-1.0.2-py2.6.egg')
-sys.path.insert(0,'/afs/cern.ch/user/l/lheinric/www/public/homepage')
+base = '/afs/cern.ch/user/l/lheinric/www/public'
+sys.path.insert(0,base+'/flup-1.0.2-py2.6.egg')
+sys.path.insert(0,base+'/homepage')
+
 
 from flup.server.fcgi import WSGIServer
 from homepage import app
