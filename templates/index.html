@@ -60,7 +60,13 @@ In order to teach Apache to relay the requests through Flask we add this <code>.
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ cgi-bin/homepage.fcgi/$1 [QSA,L]</code></pre>
+
+This file needs go be executable
+<pre><code>chmod +x cgi-bin/homepage.fcgi</code></pre>
+
 </p>
+
+
 <p>
 Now we can check out our page source (this example will produce the current page).
 <pre><code>git clone https://github.com/lukasheinrich/flaskcern.git homepage</code></pre>
