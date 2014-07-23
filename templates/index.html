@@ -1,20 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Flask on CERN AFS{% endblock %}
 
-{% macro floatimg(src, side, width=10, caption='', caller=None) %}
-	<div class="floatpic-{{side}}" style="float:{{side}};">
-		<div class="imgcaption cap-{{side}}">
-			{{caption}}
-			{% if caller is callable %}{{caller()}}{% endif %}
-		</div>
-		<img src="{{src}}" style="width:{{width}}em;"/>
-	</div>
-{%- endmacro %}
-
-{% macro embed(caller) %}
-	<div class="called" style="color:red;">{{caller()}}</div>
-{% endmacro %}
-
 {% block content %}
   <h1>Flask on CERN AFS</h1>
 	<p>

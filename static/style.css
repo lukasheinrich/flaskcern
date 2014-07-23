@@ -21,14 +21,6 @@
 	margin:0;
 }
 
-pre{
-	border:1px solid black;
-	padding:0.2em;
-	background-color:#eee;
-	color:black;
-	overflow:scroll;
-}
-
 .navitem{
 	display:inline;
 	list-style-type: none;
@@ -47,51 +39,20 @@ pre{
 	z-index:1000;
 }
 
-.floatpic-left{
-	margin:1em;
-	margin-left:0em;
-	margin-top:0.5em;
-	margin-bottom:0.5em;
-}
-
-.floatpic-right{
-	margin:1em;
-	margin-right:0em;
-	margin-top:0.5em;
-	margin-bottom:0.5em;
-}
-
-.imgcaption{
-	color:#999999;
-	position:relative;
-	width:12em;
-	font-family:'IM Fell Great Primer', serif;
-	font-size:0.9em;
-	line-height:1.5em;
-	font-style:italic;
+pre{
+	border:1px solid black;
+	padding:0.2em;
+	background-color:#eee;
+	color:black;
+	overflow:scroll;
 }
 
 ::selection {color:#eee;background:#228822;}
 ::-moz-selection {color:#eee;background:#228822;}
 
-.cap-left{
-	padding-right:0.5em;
-	margin-left:-13em;
-	float:left;
-	text-align:left;
-}
-
-.cap-right{
-	padding-left:0.5em;
-	margin-right:-13em;
-	float:right;
-	text-align:left;
-}
-
 a:link{
 	color:#992222;
 }
-
 a:hover{
 	color:#228822;
 }
@@ -100,7 +61,6 @@ h1{
 	color:#992222;
 	line-height:1.7em;
 }
-
 h1:hover{
 	color:#228822;
 }
@@ -112,6 +72,5 @@ body {
 	color: #666666;
 	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
 	line-height:1.7em;
-/*	text-align:justify;*/
 	text-justify:inter-word;
 }
